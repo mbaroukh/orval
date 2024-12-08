@@ -1,0 +1,108 @@
+{
+  "verbOptions": {
+    "GetTest": {
+      "verb": "get",
+      "tags": [],
+      "route": "/test",
+      "pathRoute": "/test",
+      "operationId": "GetTest",
+      "operationName": "getTest",
+      "response": {
+        "imports": [],
+        "definition": { "success": "void", "errors": "unknown" },
+        "isBlob": false,
+        "types": {
+          "success": [
+            {
+              "value": "void",
+              "imports": [],
+              "schemas": [],
+              "type": "void",
+              "isEnum": false,
+              "key": "200",
+              "isRef": false,
+              "hasReadonlyProps": false,
+              "contentType": "application/json"
+            }
+          ],
+          "errors": []
+        },
+        "contentTypes": ["application/json"],
+        "schemas": [],
+        "originalSchema": { "200": { "description": "OK" } }
+      },
+      "body": {},
+      "params": [],
+      "props": [],
+      "override": {
+        "hono": {},
+        "zod": {
+          "strict": {},
+          "generate": {
+            "query": true
+          },
+          "coerce": {}
+        }
+      }
+    }
+  },
+  "output": {
+    "target": "/target.ts",
+    "client": "hono",
+    "mode": "split",
+    "override": {
+      "hono": {},
+      "zod": {
+        "strict": {},
+        "generate": {
+          "query": true
+        },
+        "coerce": {}
+      }
+    }
+  },
+  "context": {
+    "specKey": "query-coerce.yaml",
+    "target": "query-coerce.yaml",
+    "workspace": "/",
+    "specs": {
+      "query-coerce.yaml": {
+        "openapi": "3.0.3",
+        "info": {
+          "title": "Test query coerce (cf https://github.com/orval-labs/orval/issues/1575)",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/test": {
+            "get": {
+              "parameters": [
+                {
+                  "in": "query",
+                  "name": "numbervalue",
+                  "schema": { "type": "integer" }
+                }
+              ],
+              "responses": { "200": { "description": "OK" } }
+            }
+          }
+        }
+      }
+    },
+    "output": {
+      "target": "/target.ts",
+      "client": "hono",
+      "mode": "split",
+      "unionAddMissingProperties": false,
+      "override": {
+        "hono": {},
+        "zod": {
+          "strict": {},
+          "generate": {
+            "query": true
+          },
+          "coerce": {}
+        }
+      }
+    }
+  }
+}

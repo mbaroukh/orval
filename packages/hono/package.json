@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsup ./src/index.ts --target node12 --clean --dts --sourcemap",
     "dev": "tsup ./src/index.ts --target node12 --clean --watch --sourcemap src",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "test": "vitest run test.ts --global"
   },
   "dependencies": {
     "@orval/core": "7.3.0",
